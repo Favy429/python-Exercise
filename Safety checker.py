@@ -55,4 +55,48 @@ if pressure < 80 or pressure > 120:
     efficiency -= 5
 
 # Display result
-print(f"System Efficiency: {efficiency}%")                   
+print(f"System Efficiency: {efficiency}%")
+
+print("=== Chemical Plant Safety Checker ===")
+
+safe = True
+ph = float(input("Enter pH level: "))
+
+if temperature > 100:
+    print("⚠️ Temperature too HIGH.")
+    safe = False
+
+else:
+    print("✅ Temperature is within safe range.")
+
+# Pressure check
+if pressure < 1:
+    print("⚠️ Pressure too LOW.")
+    safe = False
+
+elif pressure > 5:
+    print("⚠️ Pressure too HIGH.")
+    safe = False
+
+else:
+    print("✅ Pressure is within safe range.")
+
+# pH check
+if ph < 6:
+    print("⚠️ Solution is too ACIDIC.")
+    safe = False
+
+elif ph > 8:
+    print("⚠️ Solution is too ALKALINE.")
+    safe = False
+
+else:
+    print("✅ pH is within safe range.")
+
+# Overall system status
+print("\n--- Overall Status ---")
+
+if safe:
+    print("🟢 SYSTEM SAFE")
+else:
+    print("🔴 SYSTEM UNSAFE - Immediate attention required.")

@@ -15,5 +15,5 @@ print("OUTPUT:", result)
 # Creates a class named 'MyClass' inheriting from 'object' with an attribute 'x'
 MyClass = type('MyClass', (object,), {'x': 100})
 obj = MyClass()
-print(obj.x)  
+print(obj.x)
 

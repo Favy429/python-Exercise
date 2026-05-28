@@ -46,13 +46,17 @@ pressure = float(input("Enter pressure: "))
 # Starting efficiency
 efficiency = 95
 
-# Check temperature range
-if temperature < 200 or temperature > 300:
-    efficiency -= 5
+# Check temperature and pressure ranges
+if 200 <= temperature <= 300 and 80 <= pressure <= 120:
+    efficiency = 95
+else:
+    efficiency = 95
 
-# Check pressure range
-if pressure < 80 or pressure > 120:
-    efficiency -= 5
+    if not (200 <= temperature <= 300):
+        efficiency -= 5
+
+    if not (80 <= pressure <= 120):
+        efficiency -= 5
 
 # Display result
 print(f"System Efficiency: {efficiency}%")

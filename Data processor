@@ -1,0 +1,58 @@
+# Ask the user for a number
+number = int(input("Enter a number (1-10): "))
+
+# Print multiplication table
+print(f"\nMultiplication Table for {number}\n")
+
+for i in range(1, 11):
+    result = number * i
+    print(f"{number} x {i} = {result}")
+ # OR   
+number = int(input("Enter a number (1-10): "))
+
+if 1 <= number <= 10:
+
+    for i in range(1, 11):
+        print(f"{number} x {i} = {number * i}")
+else:
+    print("Please enter a number between 1 and 10.")
+    
+    # Create empty list
+temperatures = []
+
+# Collect 5 temperature values
+for i in range(5):
+
+    temp = float(input(f"Enter temperature {i + 1}: "))
+
+    temperatures.append(temp)
+
+# Calculate results
+highest = max(temperatures)
+lowest = min(temperatures)
+average = sum(temperatures) / len(temperatures)
+
+# Display results
+print("\n--- Temperature Report ---")
+
+print("Temperatures entered:", temperatures)
+print("Highest temperature:", highest)
+print("Lowest temperature:", lowest)
+print("Average temperature:", average)
+
+
+# List of Celsius temperatures
+celsius_values = [0, 20, 37, 100, -40]
+
+# Print table header
+print(f"{'Celsius':<12}{'Fahrenheit':<15}{'Kelvin':<10}")
+
+print("-" * 37)
+
+# Loop through values
+for celsius in celsius_values:
+
+    fahrenheit = (celsius * 9/5) + 32
+    kelvin = celsius + 273.15
+
+    print(f"{celsius:<12}{fahrenheit:<15.2f}{kelvin:<10.2f}")

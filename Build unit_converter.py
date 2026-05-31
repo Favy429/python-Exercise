@@ -20,6 +20,36 @@ Ibs = KG * 2.20462
 print(f"{KG} KG to {Ibs} Ibs")
 
 
+# Refactoring into functions with docstrings and a main() function
+def celsius_to_fahrenheit (celsius):
+    """convert celsius to fahrenheit"""
+    return celsius * 9/5 + 32
+
+def celsius_to_kelvin (celsius):
+    """convert celsisius to kelvin"""
+    return celsius + 273.15
+
+def atm_to_kilopascals (atm):
+    """convert atm to kilopascals"""
+    return atm * 101.325
+
+def kg_to_Ibs (kg):
+    """convert kg to Ibs"""
+    return kg * 2.20462
+
+def main():
+    celsius = float(input("Enter temperature in celsius: "))
+    print(f"{celsius}℃ to {celsius_to_fahrenheit(celsius)}°F")
+    print(f"{celsius}℃ to {celsius_to_kelvin(celsius)}K")
+    
+    atm = float(input("Enter pressure in atm:"))
+    print(f"{atm}atm to {atm_to_kilopascals(atm)}kPa")
+
+    kg = float(input("Enter mass in KG: "))
+    print(f"{kg} KG to {kg_to_Ibs(kg)} Ibs")
+
+if __name__  == "__main__":
+        main()
 
 
 

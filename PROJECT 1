@@ -1,7 +1,10 @@
 # chemcalc.py — Chemical Engineering Calculator
 # Author: [Onyebuchi Favour Chioma] | Week 1 Portfolio Project
 
+from gettext import install
+
 import colorama
+import pip
 
 
 def display_menu():
@@ -45,33 +48,104 @@ def main():
 if __name__ == "__main__":
     main()
 
-def convert_temperature(value, unit):
-    """
-    Convert temperature between Celsius, Fahrenheit, and Kelvin.
-    """
-    
-    unit = unit.upper()
+
+def convert_temperature():
+    """Convert temperature between Celsius, Fahrenheit, and Kelvin."""
+
+    value = float(input("Enter temperature value: "))
+    unit = input("Enter unit (C/F/K): ").upper()
 
     if unit == "C":
         fahrenheit = (value * 9 / 5) + 32
         kelvin = value + 273.15
+
         print(f"{value}°C = {fahrenheit:.2f}°F")
         print(f"{value}°C = {kelvin:.2f} K")
 
     elif unit == "F":
         celsius = (value - 32) * 5 / 9
         kelvin = celsius + 273.15
+
         print(f"{value}°F = {celsius:.2f}°C")
         print(f"{value}°F = {kelvin:.2f} K")
 
     elif unit == "K":
         celsius = value - 273.15
         fahrenheit = (celsius * 9 / 5) + 32
+
         print(f"{value} K = {celsius:.2f}°C")
         print(f"{value} K = {fahrenheit:.2f}°F")
 
     else:
         print("Invalid unit. Use C, F, or K.")
+
+
+convert_temperature()
+
+
+def ideal_gas():
+
+    R = 0.0821
+
+    unknown = input("Which variable is unknown? (P, V, n, T): ").upper()
+
+    if unknown == "P":
+
+        V = float(input("Volume (L): "))
+        n = float(input("Moles (n): "))
+        T = float(input("Temperature (K): "))
+
+        P = (n * R * T) / V
+
+        print(f"Pressure = {P:.2f} atm")
+
+    elif unknown == "V":
+
+        P = float(input("Pressure (atm): "))
+        n = float(input("Moles (n): "))
+        T = float(input("Temperature (K): "))
+
+        V = (n * R * T) / P
+
+        print(f"Volume = {V:.2f} L")
+
+    elif unknown == "N":
+
+        P = float(input("Pressure (atm): "))
+        V = float(input("Volume (L): "))
+        T = float(input("Temperature (K): "))
+
+        n = (P * V) / (R * T)
+
+        print(f"Moles = {n:.2f}")
+
+    elif unknown == "T":
+
+        P = float(input("Pressure (atm): "))
+        V = float(input("Volume (L): "))
+        n = float(input("Moles (n): "))
+
+        T = (P * V) / (n * R)
+
+        print(f"Temperature = {T:.2f} K")
+
+    else:
+        print("Invalid choice.")
+
+
+ideal_gas()
+
+while True:
+
+    try:
+        value = float(input("Enter a number: "))
+        break
+
+    except ValueError:
+        print("Numbers only. Try again.")
+
+print("Valid input received.")
+
 
 from colorama import Fore, Style
 
@@ -80,4 +154,3 @@ print(Fore.YELLOW + "Warning")
 print(Fore.RED + "Danger")
 
 print(Style.RESET_ALL)
-
